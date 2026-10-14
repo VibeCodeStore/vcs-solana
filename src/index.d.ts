@@ -1,0 +1,17 @@
+import type { PublicKey, TransactionInstruction, Connection } from '@solana/web3.js';
+export function newNonce(len?: number): string;
+export function createSignInMessage(o: { domain: string; address: string; statement?: string; uri: string; version?: string; chainId?: string; nonce: string; issuedAt?: string; expirationTime?: string }): string;
+export function parseSignInMessage(text: string): Record<string, string>;
+export function verifySignIn(o: { message: string; signature: string | Uint8Array; expectedDomain?: string; expectedNonce?: string; now?: Date }): { ok: true; fields: Record<string, string> } | { ok: false; reason: string };
+export const APP_ACCOUNT_SIZE: number;
+export function appIdFromName(name: string): Buffer;
+export function appAddress(programId: string | PublicKey, appId: Uint8Array): PublicKey;
+export function decodeAppAccount(data: Uint8Array): { owner: string; appId: string; head: string; count: bigint };
+export function fetchApp(connection: Connection, programId: string | PublicKey, appId: Uint8Array): Promise<ReturnType<typeof decodeAppAccount> | null>;
+export function replayChain(entries: { buildHash: string; scopesHash: string; reviewer: string; slot: number | bigint }[]): string;
+export function matchesChain(entries: Parameters<typeof replayChain>[0], onchain: { head: string; count: bigint }): boolean;
+export const VCS_DECIMALS: number;
+export function toBaseUnits(amount: string | number, decimals?: number): bigint;
+export function fromBaseUnits(units: bigint | string | number, decimals?: number): string;
+export function getVcsBalance(connection: Connection, owner: string, mint: string): Promise<string>;
+export function buildBurnInstruction(o: { owner: string; mint: string; amount: string; decimals?: number }): TransactionInstruction;

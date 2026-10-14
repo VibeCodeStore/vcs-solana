@@ -1,0 +1,16 @@
+{
+  "name": "@vcs/solana",
+  "version": "0.1.0",
+  "description": "Solana client for VCS: Sign In With Solana, attestation reads, and $VCS token helpers.",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "scripts": { "test": "node --test" },
+  "dependencies": {
+    "@solana/web3.js": "1.95.3",
+    "@solana/spl-token": "0.4.8",
+    "bs58": "6.0.0"
+  },
+  "license": "Apache-2.0",
+  "engines": { "node": ">=20" }
+}
